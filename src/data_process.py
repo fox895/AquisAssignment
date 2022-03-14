@@ -2,6 +2,12 @@ import pandas as pd
 
 
 def clean_type_8(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    This function cleans a DataFrame which contains data from messages of type 8.
+    It removes unused columns, fixes columns' type, set the correct index for
+    joins, sort the dataframe, and finally renames the main columns
+    """
+
     return (
         df.drop(['umtf', 'mic', 'tickTableId'], axis=1)
         .astype({
@@ -20,6 +26,14 @@ def clean_type_8(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def aggregate_type_12(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    This functions generate all the aggregated data from a Dataframe containing
+    messages of type 12.
+    The aggregation function are very similar one another one could think of creating
+    a generic function that can return all of those type of results.
+    This may not be convenient and easy to read.
+    """
+
 
     # Recast into proper types
     df = df.astype({

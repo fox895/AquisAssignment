@@ -4,6 +4,15 @@ import src.data_process as dp
 
 
 def main(output: str, fancy_header: bool):
+    """
+    Main function of the script.
+    Parameters:
+
+        - output: string. Indicates the path of the output file
+
+        - fancy_header: boolean.
+        If the user want the output file header to be separated by |
+    """
     with open('pretrade_current.txt', 'r') as buffer:
         msg_type, _ = utils.get_msgType_dict(buffer)
 

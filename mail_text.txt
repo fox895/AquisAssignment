@@ -1,0 +1,21 @@
+Hi Matteo. Thanks for taking the time to speak with me. As discussed, here is the assignment:
+
+In Python3, read the public data for exchange events that occur on Aquis Exchange UK:
+
+[*** Url Redacted ***]
+
+and
+
+Produce a TSV (tab separated value) Order Add aggregate report with headers in this format:
+
+ISIN | Currency | Total Buy Count | Total Sell Count | Total Buy Quantity | Total Sell Quantity | Weighted Average Buy Price | Weighted Average Sell Price | Max Buy Price | Min Sell Price
+
+Security reference data records are identified where msgType_ = 8.
+Order Add records are identified where msgType_ = 12
+
+Be creative, and focus on how you would demonstrate your level of production-level quality: performance, robustness, and code style. What you produce will be used to drive the next stage of the interview.
+
+If you have any questions or observations, let me know!
+
+Regards.
+Viet

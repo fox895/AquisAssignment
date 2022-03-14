@@ -34,7 +34,7 @@ def generate_DataFrame_by_type_id(
     parse_string, parse_key = generate_parse_key_string(type_id)
     parser = re.compile(parse_string)
 
-    for elements in input_table[str(type_id)]:
+    for elements in input_table.get(str(type_id), []):
         match = parser.search(elements)
 
         if match:

@@ -38,7 +38,7 @@ def get_msgType_dict(
 
 
 def generate_DataFrame_by_type_id(
-    type_id: Union[str, int], input_table: dict[str, List[str]]
+    type_id: Union[str, int], input_table: Dict[str, List[str]]
 ) -> pd.DataFrame:
     """
     Provided an Id for the type of messages required, this functions

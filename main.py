@@ -1,19 +1,23 @@
 import pandas as pd
 import src.utils as utils
 import src.data_process as dp
+from src.parser import parser
 
 
-def main(output: str, fancy_header: bool):
+def main(input_file: str, output_file: str, fancy_header: bool):
     """
     Main function of the script.
     Parameters:
 
-        - output: string. Indicates the path of the output file
+        - input_file: string. Indicates the path of the input file
+
+        - output_file: string. Indicates the path of the output file
 
         - fancy_header: boolean.
         If the user want the output file header to be separated by |
     """
-    with open('pretrade_current.txt', 'r') as buffer:
+
+    with open(input_file, 'r') as buffer:
         msg_type, _ = utils.get_msgType_dict(buffer)
 
     df8 = utils.generate_DataFrame_by_type_id('8', input_table=msg_type)
@@ -29,16 +33,19 @@ def main(output: str, fancy_header: bool):
         )
 
     if not fancy_header:
-        df.to_csv(output, sep='\t', index=False, na_rep='NA')
+        df.to_csv(output_file, sep='\t', index=False, na_rep='NA')
     else:
-        with open(output, 'w') as filepath:
+        with open(output_file, 'w') as filepath:
             filepath.write(' | '.join(df.columns))
         df.to_csv(
-            output, sep='\t',
+            output_file, sep='\t',
             index=False, header=False,
             na_rep='NA', mode='a'
         )
 
 
 if __name__ == '__main__':
-    main('aggregate_output.tsv', fancy_header=False)
+    args = vars(parser.parse_args())
+    input_str = args.get('inputfile')
+    output_str = args.get('outputfile')
+    main(input_str, output_str, fancy_header=False)

@@ -1,5 +1,6 @@
 # AquisAssignment
-Repository for the handson test by AquisExchange
+Repository for the handson test by AquisExchange.
+Python version tested with 3.8.12 and 3.10.2
 
 ## Installation
  - Create a virtual environment (eg `python -m venv venv`)
